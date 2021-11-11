@@ -14,10 +14,9 @@ namespace lesson4
             {
                 return array.Sum();
             }
-
-            var y = Add(1, 2, 3, 6, 5, 4);
-            //var x = Add(y);
-            Console.WriteLine(y);
+            var x = Console.ReadLine();
+            var y = x.Split().Select(int.Parse).ToArray();
+            Console.WriteLine(Add(y));
         }  
     }
-}
+} 
