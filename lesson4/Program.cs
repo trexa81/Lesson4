@@ -11,32 +11,53 @@ namespace lesson4
         static void Main(string[] args)
         {
             //ссума чисел через пробел
-            //Console.WriteLine("Введите целые числа через пробел и нажмите: ввод");
-            //int Add(params int[] array)
-            //{
-            //    return array.Sum();
-            //}
-            //var x = Console.ReadLine();
-            //var y = x.Split().Select(int.Parse).ToArray();
-            //Console.WriteLine(Add(y));
-            //Console.WriteLine("\t\t***\n");
+            Console.WriteLine("Введите целые числа через пробел и нажмите: ввод");
+            int Add(params int[] array)
+            {
+                return array.Sum();
+            }
+            var x = Console.ReadLine();
+            var y = x.Split().Select(int.Parse).ToArray();
+            Console.WriteLine(Add(y));
+            Console.WriteLine("\t\t***\n");
 
-            //(string firstName, string lastName, string patronymic)[] users = GetFullNames();
-            //PrintUsers(users);
+            (string firstName, string lastName, string patronymic)[] users = GetFullNames();
+            PrintUsers(users);
 
             Console.WriteLine("Введите номер месяца");
             int munth = Convert.ToInt32(Console.ReadLine());
-
-            switch (munth)
-            {
-                case (1):
-                    Console.WriteLine((Seasons)1);
-                    break;
-                default:
-                    Console.WriteLine("некорректные данные");
-                    break;
-            }
         }
+        static Seasons GetSeasons(ref int munth)
+        {
+            Seasons result;
+            if (munth >= 3 && munth <= 5)
+            {
+                result = Seasons.Spring;
+            }
+            else
+            {
+                if (munth >= 6 && munth <= 8)
+                {
+                    result = Seasons.Summer;
+                }
+                else
+                {
+                    if (munth >= 9 && munth <= 11)
+                    {
+                        result = Seasons.Autumn;
+                    }
+                    else
+                    {
+                        result = Seasons.Winter;
+                    }
+                }
+            }
+            return result;
+        }
+        
+
+           
+        
         [Flags]
         enum Seasons
         {
