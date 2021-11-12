@@ -11,19 +11,40 @@ namespace lesson4
         static void Main(string[] args)
         {
             //ссума чисел через пробел
+            //Console.WriteLine("Введите целые числа через пробел и нажмите: ввод");
+            //int Add(params int[] array)
+            //{
+            //    return array.Sum();
+            //}
+            //var x = Console.ReadLine();
+            //var y = x.Split().Select(int.Parse).ToArray();
+            //Console.WriteLine(Add(y));
+            //Console.WriteLine("\t\t***\n");
 
-            Console.WriteLine("Введите целые числа через пробел и нажмите: ввод");
-            int Add(params int[] array)
+            //(string firstName, string lastName, string patronymic)[] users = GetFullNames();
+            //PrintUsers(users);
+
+            Console.WriteLine("Введите номер месяца");
+            int munth = Convert.ToInt32(Console.ReadLine());
+
+            switch (munth)
             {
-                return array.Sum();
+                case (1):
+                    Console.WriteLine((Seasons)1);
+                    break;
+                default:
+                    Console.WriteLine("некорректные данные");
+                    break;
             }
-            var x = Console.ReadLine();
-            var y = x.Split().Select(int.Parse).ToArray();
-            Console.WriteLine(Add(y));
-            Console.WriteLine("\t\t***\n");
-
-            (string firstName, string lastName, string patronymic)[] users = GetFullNames();
-            PrintUsers(users);
+        }
+        [Flags]
+        enum Seasons
+        {
+            nul = 0b00000000,
+            Winter = 0b00000001,
+            Spring = 0b00000010,
+            Summer = 0b00000100,
+            Autumn = 0b00001000,
         }
 
         static (string firstName, string lastName, string patronymic) GetFullName()
@@ -70,7 +91,7 @@ namespace lesson4
             {
                 PrintUser(users[i]);
             }
-        }   
+        }
 
 
 
