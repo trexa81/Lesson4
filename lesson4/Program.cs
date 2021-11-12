@@ -10,6 +10,8 @@ namespace lesson4
     {
         static void Main(string[] args)
         {
+            //ссума чисел через пробел
+
             Console.WriteLine("Введите целые числа через пробел и нажмите: ввод");
             int Add(params int[] array)
             {
@@ -23,11 +25,12 @@ namespace lesson4
             (string firstName, string lastName, string patronymic)[] users = GetFullNames();
             PrintUsers(users);
         }
+
         static (string firstName, string lastName, string patronymic) GetFullName()
         {
             Console.WriteLine("Привет! Как тебя зовут?");
             string firstName = Console.ReadLine();
-            Console.WriteLine($"Привет! " + firstName + " Какая у  тебя фомилия?");
+            Console.WriteLine($"Привет! " + firstName + " Какая у  тебя фамилия?");
             string lastName = Console.ReadLine();
             Console.WriteLine($"Привет! " + firstName + " Какое у  тебя отчество?");
             string patronymic = Console.ReadLine();
