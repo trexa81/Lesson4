@@ -19,6 +19,7 @@ namespace lesson4
             var x = Console.ReadLine();
             var y = x.Split().Select(int.Parse).ToArray();
             Console.WriteLine(Add(y));
+            Console.Clear();
             Console.WriteLine("\t\t***\n");
 
             // список ФИО
