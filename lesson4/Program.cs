@@ -24,48 +24,7 @@ namespace lesson4
             (string firstName, string lastName, string patronymic)[] users = GetFullNames();
             PrintUsers(users);
 
-            Console.WriteLine("Введите номер месяца");
-            int munth = Convert.ToInt32(Console.ReadLine());
-        }
-        static Seasons GetSeasons(ref int munth)
-        {
-            Seasons result;
-            if (munth >= 3 && munth <= 5)
-            {
-                result = Seasons.Spring;
-            }
-            else
-            {
-                if (munth >= 6 && munth <= 8)
-                {
-                    result = Seasons.Summer;
-                }
-                else
-                {
-                    if (munth >= 9 && munth <= 11)
-                    {
-                        result = Seasons.Autumn;
-                    }
-                    else
-                    {
-                        result = Seasons.Winter;
-                    }
-                }
-            }
-            return result;
-        }
-        
 
-           
-        
-        [Flags]
-        enum Seasons
-        {
-            nul = 0b00000000,
-            Winter = 0b00000001,
-            Spring = 0b00000010,
-            Summer = 0b00000100,
-            Autumn = 0b00001000,
         }
 
         static (string firstName, string lastName, string patronymic) GetFullName()
@@ -113,10 +72,5 @@ namespace lesson4
                 PrintUser(users[i]);
             }
         }
-
-
-
-
     }
 }
- 
