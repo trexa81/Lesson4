@@ -24,15 +24,19 @@ namespace lesson4
             // список ФИО
             (string firstName, string lastName, string patronymic)[] users = GetFullNames();
             PrintUsers(users);
-
-            Console.WriteLine("Введите номер месяца");
+            Console.Clear();
+            Console.WriteLine("\t\t***\n");
+            
+            //месяцы
+            Console.WriteLine("Введите номер месяца и нажмите: ввод");
             var input = Console.ReadLine();
             var inputAsNumber = Convert.ToInt32(input);
             var season = GetSeason(inputAsNumber);
             var seasonName = GetSeasonName(season);
             Console.WriteLine(seasonName);
-            Console.WriteLine("\t\t***\n");
             Console.Clear();
+            Console.WriteLine("\t\t***\n");
+            
 
             Seasons GetSeason(int month)
             {
@@ -96,7 +100,7 @@ namespace lesson4
 
         static (string firstName, string lastName, string patronymic)[] GetFullNames()
         {
-            Console.WriteLine("Введите количество пользователей:");
+            Console.WriteLine("Введите количество пользователей и нажмите: ввод");
             int count = Convert.ToInt32(Console.ReadLine());
             (string firstName, string lastName, string patronymic)[] users =
                 new (string firstName, string lastName, string patronymic)[count];
