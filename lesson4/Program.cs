@@ -21,11 +21,67 @@ namespace lesson4
             Console.WriteLine(Add(y));
             Console.WriteLine("\t\t***\n");
 
+            // список ФИО
             (string firstName, string lastName, string patronymic)[] users = GetFullNames();
             PrintUsers(users);
 
+            Console.WriteLine("Введите номер месяца");
+            var input = Console.ReadLine();
+            var inputAsNumber = Convert.ToInt32(input);
+            var season = GetSeason(inputAsNumber);
+            var seasonName = GetSeasonName(season);
+            Console.WriteLine(seasonName);
+            Console.WriteLine("\t\t***\n");
+            Console.Clear();
 
+            Seasons GetSeason(int month)
+            {
+                if (month == 12 || month < 3)
+                {
+                    return Seasons.Winter;
+                }
+                if (month < 6)
+                {
+                    return Seasons.Spring;
+                }
+                if (month < 9)
+                {
+                    return Seasons.Summer;
+                }
+                if (month < 12)
+                {
+                    return Seasons.Autumn;
+                }
+                return Seasons.Summer;
+            }
+
+            string GetSeasonName(Seasons season)
+            {
+                switch (season)
+                {
+                    case Seasons.Winter:
+                        return "Зима";
+                    case Seasons.Spring:
+                        return "Весна";
+                    case Seasons.Summer:
+                        return "Лето";
+                    case Seasons.Autumn:
+                        return "Осень";
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(season), season, null);
+                }
+            }
         }
+
+        enum Seasons
+        {
+            //null = 0b00000000,
+            Winter = 0b00000001,
+            Spring = 0b00000010,
+            Summer = 0b00000100,
+            Autumn = 0b00001000,
+        }
+
 
         static (string firstName, string lastName, string patronymic) GetFullName()
         {
